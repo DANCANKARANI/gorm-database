@@ -33,7 +33,6 @@ func Users(w http.ResponseWriter, r *http.Request) {
 	db,err:=gorm.Open("sqlite3","test_db")
 	if err!=nil{
 		fmt.Println("failed to connect to the db")
-		
 	}
 	defer db.Close()
 	var user []User
