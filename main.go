@@ -22,9 +22,8 @@ func MyRouter(){
 	mux.HandleFunc("/users",Users).Methods("GET")
 	mux.HandleFunc("/user/{name}/{email}",NewUser).Methods("POST")
 	mux.HandleFunc("/user/{name}/{email}",ReplaceUser).Methods("PUT")
-	mux.HandleFunc("/delete",DeleteUser).Methods("DELETE")
-	log.Fatal(http.ListenAndServe(":8083",mux))
-
+	mux.HandleFunc("/{name}/delete",DeleteUser).Methods("DELETE")
+	log.Fatal(http.ListenAndServe(":8080",mux))
 }
 func main(){
 	fmt.Println("Running")
